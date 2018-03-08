@@ -1,5 +1,4 @@
-# First-text-based-game-created-by-me
-The game is called Virtlife. Tell me what you think about it!
+# Virtlife
 Virtlife is a text-based game in which you can become a random person and simulate a random life.
 Includes:
 -Careers: painter, singer, sports, criminal
