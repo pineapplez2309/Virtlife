@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1512132308 source:c:\oji\codeblocks\virtlife v1.1\main.cpp
+	<iostream>
+	<stdio.h>
+	<string.h>
+	<cstdlib>
+	<ctime>
+	<windows.h>
+	<climits>
+
