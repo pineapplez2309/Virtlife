@@ -2214,7 +2214,7 @@ void MAINPROGRAMME()
 int main()
 {
     srand((unsigned int)time(NULL));
-    cout<<"                      ***Welcome to VirtLife***"<<endl<<endl<<endl<<endl<<endl;
+    cout<<"                      ***Welcome to VirtLife***"<<endl<<"(by Stefan Popescu-stefanp99)"<<endl<<"Contact:stefanpopescu99@gmail.com"<<endl<<endl<<endl<<"Instructions:"<<endl<<"0=Reject"<<endl<<"1=Approve"<<endl<<endl<<endl<<"Have fun!"<<endl;
     system("Pause");
     system("CLS");
     randomizer();
