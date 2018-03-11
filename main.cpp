@@ -1,10 +1,11 @@
 #include <iostream>
 #include <stdio.h>
-#include <string.h>
+#include <string>
 #include <cstdlib>
 #include <ctime>
 #include <windows.h>
 #include <climits>
+
 using namespace std;
 //event:7-14 (1-Extra classes 2-Fight with colleague)  15-18(1-Extra classes 2-Fight with colleague 3-Relationship 4-Drugs 5-Alcohol 6-Smoking 7-Party)
 //event:19-35 (1-Fight with colleague/stranger 2-Relationship 3-Drugs 4-Alcohol 5-Smoking 6-Party 7-Job)
@@ -12,6 +13,7 @@ using namespace std;
 //event:51-64 (1-Relationship 2-Alcohol 3-Smoking 4-Job)
 //event:65+ (1-Relationship 2-Alcohol 3-Smoking)
 //Careers:1-musician 2-painter 3-criminal 4-sportsman
+
 string bukire[100]= {"Oliver","George","Harry","Jack","Jacob","James"}; //6 ire,uk
 string gukire[100]= {"Amelia","Olivia","Emily","Sophie","Jessica","Grace"};
 string bscand[100]= {"William","Lucas","Liam","Aron","Alexander","Kristjan"}; //6 scandinavia - den,fin,ice,nor,swe
@@ -33,10 +35,10 @@ string drugs[100]= {"Marijuana","LSD","Cocaine","Salvia","Ecstasy","Heroin","Ket
 string alcohol[100]= {"white wine","red wine","tequila","whiskey","beer","cider","vermouth"};
 string disease[100]= {"flu","intoxication","fever","cold","hepatitis","pneumonia","liver disease"};//7
 string studyc[100]= {"Arts","Architecture","Biosciences","Computer science","Computing","Drama","Engineering","History","Journalism","Law","Literature","Maths","Medicine","Music","Sports science","Teaching"};
-string company[100]= {"Media Arts","Nantendo Company","Mirste","Ek on omy","Pigna Industries","Eurocom Expansion","Quartz Games","Lindsay&King","InfoPro","Clarke Computing"}; //10
+string company[100]= {"Media Arts","Nantendo Company","Mirste","Ek on omy","Pigna Industries","Eurocom Expansion","Quartz Games","Lindsay & King","InfoPro","Clarke Computing"}; //10
 string carc1[100]= {"Audi","BMW","Chevrolet","Citroen","Dacia","Fiat","Ford","Honda","Hyundai","Kia","Mazda","Mercedes","Nissan","Opel","Peugeot","Renault","Skoda","Suzuki","Toyota","Volkswagen"}; //20
 string carc2[100]= {"X5","Corvette","Fabia","Focus","C5","M8","H12","Fiesta","Duster","E3","X8","I2","C4","Class 8","Class 10","CX6","DW4","500","302","1300"};
-string housec[100]= {"Apartment 1 bedroom 1 bathroom","Apartment 2 bedrooms 1 bathroom","Apartment 2 bedrooms 2 bathrooms","House 2 bedrooms 2 bathrooms","House 2 bedrooms 2 bathrooms garden","House 3 bedrooms 2 bathrooms","House 4 bedrooms 2 bathrooms garden","House 4 bedrooms 3 bathrooms garden","Luxury Villa","Luxury Villa by sea"};
+string housec[100]= {"Apartment - 1 bedroom 1 bathroom","Apartment - 2 bedrooms 1 bathroom","Apartment - 2 bedrooms 2 bathrooms","House - 2 bedrooms 2 bathrooms","House - 2 bedrooms 2 bathrooms garden","House - 3 bedrooms 2 bathrooms","House - 4 bedrooms 2 bathrooms with garden","House - 4 bedrooms 3 bathrooms with garden","Luxury Villa","Luxury Villa by sea"};
 string stdiseasec[100]= {"HIV/AIDS","Gonorrhea","Genital warts","Genital herpes","Syphilis","Chlamydia","Crabs","Hepatitis B"}; //8
 string harddisease[100]= {"Lung cancer","Liver cancer","Alzheimer","Coronary heart disease","Leukemia","Pancreas cancer","Parkinson's disease","Skin cancer"}; //8
 string musicgenres[]= {"Blues","Country","Electronic","Folk","Hip Hop","Jazz","Pop","Rock"}; //8
@@ -49,12 +51,15 @@ char stagename[20],songname[20],paintname[20];
 int i,j,k,l,m,n,o,p,q,r,country,gen,age,health,happy,intel,appear,social,money,mage,fage,fdead,mdead,agedead,event,ill,illok,clas,ok,injury,relation,sex,college,job,study,choice[100]= {100},diploma,collegepay,criminal,salary,buychoice,v[100],house;
 int car,pricerec,dhealth,dhappy,dintel,dappear,dsocial,dmoney,baby[100],work,stdok,stdisease,agedeadi,harddiseaseok,babyok,drugsnumb,limit,drugaddict,alcoholnumb,alcoholaddict,smokeaddict,ywdrugs,ywalcohol,ywsmoke,limit2,cage,cagedead;
 int crelation[100],cn[100],y[100],career,music,yforsong,song,reputation,musicalcopies,musicaltour,yforpaint,paint,criminalchoice,crimes,sportschoice,sportsok,carprice[100],houseprice[100],holiday;
+
 struct child
 {
-    string childname[1];
+    string childname;
     int childage,childgender,childdeathage;
 };
+
 child a[100];
+
 void randomnamegenerator(int gen, int country, string name[])
 {
     j=rand()%6;
@@ -174,10 +179,11 @@ void randomizer()
         houseprice[9]=3*(rand()%3000000+2000000);
     }
 }
+
 void fightmenu()
 {
     int ok;
-    cout<<"You are arguing. What do you do?(0-ignore/1-fight)";
+    cout<<"You are arguing. What do you do? (0-ignore/1-fight) ";
     cin>>ok;
     if(ok==0)
         dsocial-=rand()%8+3;
@@ -223,13 +229,14 @@ void fightmenu()
         }
     }
 }
+
 void partymenu()
 {
     if(age>=50)
         cout<<"You are too old to enter a club"<<endl;
     else
     {
-        cout<<"Do you want to go clubbing?(0/1)";
+        cout<<"Do you want to go clubbing? (0-No/1-Yes) ";
         cin>>m;
         if(m==0)
             dsocial-=rand()%6+5;
@@ -240,7 +247,7 @@ void partymenu()
             j=rand()%4;
             if(j==0)
             {
-                cout<<"You find someone attractive. Do you have a one night stand?(0/1)";
+                cout<<"You find someone attractive. Do you have a one night stand? (0-No/1-Yes) ";
                 cin>>m;
                 if(m==1)
                 {
@@ -267,6 +274,7 @@ void partymenu()
         }
     }
 }
+
 void illness()
 {
     j=rand()%100+1;
@@ -303,6 +311,7 @@ void illness()
         }
     }
 }
+
 void relationship()
 {
     if(relation==0&&age>=15)
@@ -321,7 +330,7 @@ void relationship()
             else
                 cage=age+rand()%5;
             cagedead=rand()%40+60;
-            cout<<"Do you want to start dating with "<<cname[0]<<" "<<cname[1]<<" ("<<cage<<" years old)"<<"?(0/1)"<<endl;
+            cout<<"Do you want to start dating with "<<cname[0]<<" "<<cname[1]<<" ("<<cage<<" years old)"<<"? (0-No/1-Yes) "<<endl;
             cin>>ok;
             if(ok==1)
             {
@@ -335,6 +344,7 @@ void relationship()
     if(relation==2)
         dhappy+=rand()%3;
 }
+
 void criminalmenu()
 {
     if(criminal==1)
@@ -387,10 +397,11 @@ void criminalmenu()
         }
     }
 }
+
 void drugsmenu()
 {
     j=rand()%7;
-    cout<<"You are given "<<drugs[j]<<". Do you want to take them?(0/1)";
+    cout<<"You are given "<<drugs[j]<<". Do you want to take them? (0-No/1-Yes) ";
     cin>>ok;
     if(ok==1)
     {
@@ -402,10 +413,11 @@ void drugsmenu()
         ywdrugs=0;
     }
 }
+
 void alcoholmenu()
 {
     j=rand()%7;
-    cout<<"You are given "<<alcohol[j]<<". Do you want to drink it?(0/1)";
+    cout<<"You are given "<<alcohol[j]<<". Do you want to drink it? (0-No/1-Yes) ";
     cin>>ok;
     if(ok==1)
     {
@@ -417,9 +429,10 @@ void alcoholmenu()
         ywalcohol=0;
     }
 }
+
 void smokingmenu()
 {
-    cout<<"You are offered cigarettes. Do you accept it?(0/1)";
+    cout<<"You are offered cigarettes. Do you accept it? (0-No/1-Yes) ";
     cin>>ok;
     if(ok==1)
     {
@@ -429,9 +442,10 @@ void smokingmenu()
         ywsmoke=0;
     }
 }
+
 void extraclassesmenu()
 {
-    cout<<"Would you like to do extra classes at school?(0/1)";
+    cout<<"Would you like to do extra classes at school? (0-No/1-Yes) ";
     cin>>ok;
     if(ok==1)
     {
@@ -439,13 +453,15 @@ void extraclassesmenu()
         dsocial-=rand()%6;
     }
 }
+
 void jobmenu()
 {
     cout<<"You boss got mad at you"<<endl;
     m=rand()%5+1;
-    cout<<"Your salary goes down with "<<m<<"%"<<endl;
+    cout<<"Your salary goes down by "<<m<<"%"<<endl;
     salary-=(salary*m)/100;
 }
+
 void relationshipmenu()
 {
     j=rand()%2;
@@ -483,6 +499,7 @@ void relationshipmenu()
         dsocial-=rand()%6+5;
     }
 }
+
 void harddiseasemenu()
 {
     if(harddiseaseok==0)
@@ -545,6 +562,7 @@ void harddiseasemenu()
         }
     }
 }
+
 void childrenmenu()
 {
     if(age>=15&&age<=18)
@@ -571,7 +589,7 @@ void childrenmenu()
             cout<<"Your partner is pregnant"<<endl;
         else
             cout<<"You are pregnant"<<endl;
-        cout<<"Do you want to keep the baby?(0/1)"<<endl;
+        cout<<"Do you want to keep the baby? (0-No/1-Yes) "<<endl;
         cin>>ok;
         if(ok==1)
         {
@@ -584,7 +602,7 @@ void childrenmenu()
                 cout<<"The baby is a girl"<<endl;
             cin.get();
             cout<<"You child's name is: ";
-            cin>>a[n].childname[0];
+            cin>>a[n].childname;
             a[n].childage=0;
             a[n].childdeathage=rand()%(max(agedead,cagedead)-min(agedead,cagedead)+1)+min(agedead,cagedead);
             a[n].childdeathage+=rand()%6;
@@ -592,6 +610,7 @@ void childrenmenu()
         babyok=0;
     }
 }
+
 void addiction()
 {
     if(drugsnumb>=limit&&drugaddict==0)
@@ -657,6 +676,7 @@ void addiction()
         }
     }
 }
+
 void coupleevent()
 {
     j=rand()%10+1;
@@ -673,7 +693,7 @@ void coupleevent()
         cout<<cname[0]<<" "<<cname[1]<<" died at the age of "<<cage<<endl;
         dhappy-=rand()%10+15;
         relation=0;
-        cout<<"Do you want to make a funeral for "<<cname[0]<<" "<<cname[1]<<"?"<<endl;
+        cout<<"Do you want to make a funeral for "<<cname[0]<<" "<<cname[1]<<"? (0-No/1-Yes) "<<endl;
         cin>>ok;
         if(ok==1)
         {
@@ -686,7 +706,7 @@ void coupleevent()
         j=rand()%10;
         if(j==0)
         {
-            cout<<"Your partner proposed to you. Do you want to get married?(0/1)"<<endl;
+            cout<<"Your partner proposed to you. Do you want to get married? (0-No/1-Yes) "<<endl;
             cin>>m;
             if(m==1)
             {
@@ -705,6 +725,7 @@ void coupleevent()
         }
     }
 }
+
 void childevent()
 {
     j=rand()%10+1;
@@ -712,16 +733,16 @@ void childevent()
     if(j==1)
     {
         i=rand()%7;
-        cout<<endl<<a[k].childname[0]<<" got "<<disease[i]<<endl;
+        cout<<endl<<a[k].childname<<" got "<<disease[i]<<endl;
         a[k].childdeathage-=rand()%4;
     }
     else if(j>=8)
         a[k].childdeathage+=rand()%2;
     if(a[k].childage>=a[k].childdeathage)
     {
-        cout<<a[k].childname[0]<<" died at the age of "<<a[k].childage<<endl;
+        cout<<a[k].childname<<" died at the age of "<<a[k].childage<<endl;
         dhappy-=rand()%10+15;
-        cout<<"Do you want to make a funeral for "<<a[k].childname[0]<<"?"<<endl;
+        cout<<"Do you want to make a funeral for "<<a[k].childname<<"? (0-No/1-Yes) "<<endl;
         cin>>ok;
         if(ok==1)
         {
@@ -737,7 +758,7 @@ void childevent()
         j=rand()%10;
         if(j==0)
         {
-            cout<<a[k].childname[0]<<" got into a relationship"<<endl;
+            cout<<a[k].childname<<" got into a relationship"<<endl;
             crelation[k]=1;
         }
     }
@@ -746,7 +767,7 @@ void childevent()
         j=rand()%10;
         if(j==0)
         {
-            cout<<a[k].childname[0]<<" got married"<<endl;
+            cout<<a[k].childname<<" got married"<<endl;
             crelation[k]=2;
         }
     }
@@ -755,12 +776,12 @@ void childevent()
         j=rand()%15;
         if(j==0)
         {
-            cout<<a[k].childname[0]<<" had broken up"<<endl;
+            cout<<a[k].childname<<" had broken up"<<endl;
             crelation[k]=0;
         }
         if(j==14)
         {
-            cout<<a[k].childname[0]<<" had a baby"<<endl;
+            cout<<a[k].childname<<" had a baby"<<endl;
             y[k]=a[k].childage;
             cn[k]++;
         }
@@ -770,16 +791,17 @@ void childevent()
         j=rand()%20;
         if(j==0)
         {
-            cout<<a[k].childname[0]<<" divorced"<<endl;
+            cout<<a[k].childname<<" divorced"<<endl;
             crelation[k]=0;
         }
         if(j>=18)
         {
-            cout<<a[k].childname[0]<<" had a baby"<<endl;
+            cout<<a[k].childname<<" had a baby"<<endl;
             y[k]=a[k].childage;
         }
     }
 }
+
 void death()
 {
     system("Pause");
@@ -792,7 +814,7 @@ void death()
         if(harddiseaseok==1)
             cout<<harddisease[o]<<endl;
         else if(drugaddict==1)
-            cout<<"Drugs abuse"<<endl;
+            cout<<"Drug abuse"<<endl;
         else if(alcoholaddict==1)
             cout<<"Alcohol abuse"<<endl;
         else if(stdok==1)
@@ -805,13 +827,14 @@ void death()
         cout<<endl<<name[0]<<" "<<name[1]<<" had "<<n<<" children: "<<endl;
         for(i=1; i<=n; i++)
             if(a[i].childgender==0)
-                cout<<a[i].childname[0]<<"("<<a[i].childage<<" years old, Male)"<<endl;
+                cout<<a[i].childname<<"("<<a[i].childage<<" years old, Male)"<<endl;
             else
-                cout<<a[i].childname[0]<<"("<<a[i].childage<<" years old, Female)"<<endl;
+                cout<<a[i].childname<<"("<<a[i].childage<<" years old, Female)"<<endl;
         system("Pause");
         system("CLS");
     }
 }
+
 int power(int n, int m)
 {
     int i,p=1;
@@ -822,6 +845,7 @@ int power(int n, int m)
     else
         return p;
 }
+
 void musiciancareer()
 {
     system("CLS");
@@ -851,7 +875,7 @@ void musiciancareer()
         dhealth-=rand()%7;
         if(yforsong==0)
         {
-            cout<<"You finished developing the song "<<songname<<endl;
+            cout<<"You finished developing the song '"<<songname<<"'"<<endl;
             if(reputation==0||reputation==1)
                 if(rand()%3==0)
                     reputation++;
@@ -866,7 +890,7 @@ void musiciancareer()
             cout<<songname<<" has sold "<<i<<" copies"<<endl;
             musicalcopies+=i;
             q=rand()%3+2;
-            cout<<"The price of a copy has been "<<q<<"$ and you made "<<i*q<<"$"<<endl;
+            cout<<"The price of a copy has been $"<<q<<" and you made $"<<i*q<<endl;
             dmoney+=i*q;
         }
     }
@@ -877,7 +901,7 @@ void musiciancareer()
             cout<<"Name the song:"<<endl;
             cin.get();
             gets(songname);
-            cout<<"You started developing the song "<<songname<<endl;
+            cout<<"You started developing the song '"<<songname<<"'"<<endl;
             yforsong=rand()%5+1;
             song=1;
         }
@@ -893,7 +917,7 @@ void musiciancareer()
                 i=rand()%(power(10,reputation+1))+(power(10,reputation));
                 q=rand()%6+5;
                 cout<<"The concert was attended by "<<i<<" people"<<endl;
-                cout<<"The price of the ticket was "<<q<<"$ and you made "<<i*q<<"$"<<endl;
+                cout<<"The price of the ticket was $"<<q<<" and you made $"<<i*q<<endl;
                 dmoney+=i*q;
             }
             else
@@ -904,7 +928,7 @@ void musiciancareer()
     }
     if(j==3)
     {
-        cout<<"Are you sure you want to retire?(0/1)";
+        cout<<"Are you sure you want to retire? (0-No/1-Yes) ";
         cin>>r;
         if(r==1)
         {
@@ -915,6 +939,7 @@ void musiciancareer()
         }
     }
 }
+
 void paintercareer()
 {
     system("CLS");
@@ -941,7 +966,7 @@ void paintercareer()
         dhealth-=rand()%7;
         if(yforpaint==0)
         {
-            cout<<"You finished painting "<<paintname<<endl;
+            cout<<"You finished painting '"<<paintname<<"'"<<endl;
             if(reputation==0||reputation==1)
                 if(rand()%3==0)
                     reputation++;
@@ -953,7 +978,7 @@ void paintercareer()
                     reputation++;
             paint=0;
             i=rand()%power(10,reputation+2)+power(10,reputation+1);
-            cout<<paintname<<" was sold for "<<i<<"$"<<endl;
+            cout<<paintname<<" was sold for $"<<i<<endl;
             dmoney+=i;
         }
     }
@@ -961,10 +986,10 @@ void paintercareer()
     {
         if(paint==0)
         {
-            cout<<"Name the painting:"<<endl;
+            cout<<"Name the painting : "<<endl;
             cin.get();
             gets(paintname);
-            cout<<"You started painting "<<paintname<<endl;
+            cout<<"You started painting '"<<paintname<<"'"<<endl;
             yforpaint=rand()%5+1;
             paint=1;
         }
@@ -973,7 +998,7 @@ void paintercareer()
     }
     if(j==2)
     {
-        cout<<"Are you sure you want to retire?(0/1)";
+        cout<<"Are you sure you want to retire? (0-No/1-Yes) ";
         cin>>r;
         if(r==1)
         {
@@ -982,6 +1007,7 @@ void paintercareer()
         }
     }
 }
+
 void criminalcareer()
 {
     system("CLS");
@@ -1049,7 +1075,7 @@ void criminalcareer()
         }
         if(j==2)
         {
-            cout<<"Are you sure you want to retire?(0/1)";
+            cout<<"Are you sure you want to retire? (0-No/1-Yes) ";
             cin>>r;
             if(r==1)
             {
@@ -1074,7 +1100,7 @@ void criminalcareer()
             if(i==0)
             {
                 l=rand()%4000+1000;
-                cout<<"You successfully sold the drugs and made "<<l<<"$"<<endl;
+                cout<<"You successfully sold the drugs and made $"<<l<<endl;
                 dmoney+=l;
             }
             if(i==1)
@@ -1100,7 +1126,7 @@ void criminalcareer()
         }
         if(j==2)
         {
-            cout<<"Are you sure you want to retire?(0/1)";
+            cout<<"Are you sure you want to retire? (0-No/1-Yes) ";
             cin>>r;
             if(r==1)
             {
@@ -1118,6 +1144,7 @@ void criminalcareer()
         }
     }
 }
+
 void sportscareer()
 {
     system("CLS");
@@ -1151,7 +1178,7 @@ void sportscareer()
             cout<<countryc[country]<<endl;
         if(reputation==4)
             cout<<"Internationally"<<endl;
-        cout<<"Salary: "<<salary<<"$"<<endl;
+        cout<<"Salary: $"<<salary<<endl;
         cout<<"What would you like to do?"<<endl;
         cout<<"1. Play match"<<endl;
         cout<<"2. Retire"<<endl;
@@ -1190,7 +1217,7 @@ void sportscareer()
                     if(rand()%5==0)
                     {
                         i=rand()%power(10,reputation+1)+power(10,reputation);
-                        cout<<"Your boss took "<<i<<"$ from your salary"<<endl;
+                        cout<<"Your boss took $"<<i<<" from your salary"<<endl;
                         salary-=i;
                     }
                 }
@@ -1209,12 +1236,12 @@ void sportscareer()
         }
         if(j==2)
         {
-            cout<<"Are you sure you want to retire?(0/1)";
+            cout<<"Are you sure you want to retire? (0-No/1-Yes) ";
             cin>>r;
             if(r==1)
             {
                 cout<<"You retired"<<endl;
-                cout<<"You had a salary of "<<salary<<"$"<<endl;
+                cout<<"You had a salary of $"<<salary<<endl;
                 salary=0;
                 job=0;
                 reputation=0;
@@ -1228,7 +1255,7 @@ void sportscareer()
             if(l==0)
             {
                 cout<<"You retired"<<endl;
-                cout<<"You had a salary of "<<salary<<"$"<<endl;
+                cout<<"You had a salary of $"<<salary<<endl;
                 salary=0;
                 job=0;
                 reputation=0;
@@ -1261,6 +1288,7 @@ void resetstats()
     dsocial=0;
     dmoney=0;
 }
+
 void statsadding()
 {
     health+=dhealth;
@@ -1270,6 +1298,7 @@ void statsadding()
     social+=dsocial;
     money+=dmoney;
 }
+
 void stats()
 {
     if(health>100)
@@ -1302,13 +1331,13 @@ void stats()
     cout<<"Age: "<<age<<endl;
     cout<<"Nationality: "<<countryc[country]<<endl;
     cout<<"Death age: "<<agedead<<endl;
-    cout<<"Health: "<<health<<"%("<<dhealth<<")"<<endl;
-    cout<<"Happiness: "<<happy<<"%("<<dhappy<<")"<<endl;
-    cout<<"Inteligence: "<<intel<<"%("<<dintel<<")"<<endl;
-    cout<<"Appearance: "<<appear<<"%("<<dappear<<")"<<endl;
-    cout<<"Social skills: "<<social<<"%("<<dsocial<<")"<<endl;
-    cout<<"Money: "<<money<<"$"<<"("<<dmoney<<")"<<endl;
-    cout<<"Salary: "<<salary<<"$ per year"<<endl;
+    cout<<"Health: "<<health<<"% ("<<dhealth<<")"<<endl;
+    cout<<"Happiness: "<<happy<<"% ("<<dhappy<<")"<<endl;
+    cout<<"Intelligence: "<<intel<<"% ("<<dintel<<")"<<endl;
+    cout<<"Appearance: "<<appear<<"% ("<<dappear<<")"<<endl;
+    cout<<"Social skills: "<<social<<"% ("<<dsocial<<")"<<endl;
+    cout<<"Money: $"<<money<<" ("<<dmoney<<")"<<endl;
+    cout<<"Salary: $"<<salary<<" per year"<<endl;
     cout<<"Work experience: "<<work<<" years"<<endl;
     if(house+1!=0)
         cout<<"House rating: "<<house+1<<endl;
@@ -1342,14 +1371,14 @@ void stats()
         cout<<"Working at "<<company[p]<<endl;
     cout<<endl;
     if(fage<fdead)
-        cout<<"Father("<<fname[0]<<") age: "<<fage<<endl;
+        cout<<"Father ("<<fname[0]<<") age: "<<fage<<endl;
     if(fage==fdead)
     {
         cout<<"Your father passed away at the age of "<<fage<<"!"<<endl;
         fage++;
     }
     if(mage<mdead)
-        cout<<"Mother("<<mname[0]<<") age: "<<mage<<endl<<endl;
+        cout<<"Mother ("<<mname[0]<<") age: "<<mage<<endl<<endl;
     if(mage==mdead)
     {
         cout<<"Your mother passed away at the age of "<<mage<<"!"<<endl;
@@ -1360,9 +1389,9 @@ void stats()
         for(i=1; i<=n; i++)
         {
             if(a[i].childgender==0)
-                cout<<"Child#"<<i<<"(male)"<<"Name: "<<a[i].childname[0]<<"     "<<"Age: "<<a[i].childage<<" years old     ";
+                cout<<"Child #"<<i<<"(male) Name: "<<a[i].childname<<"     Age: "<<a[i].childage<<" years old     ";
             else
-                cout<<"Child#"<<i<<"(female)"<<": "<<a[i].childname[0]<<"     "<<"Age: "<<a[i].childage<<" years old     ";
+                cout<<"Child #"<<i<<"(female) Name: "<<a[i].childname<<"     Age: "<<a[i].childage<<" years old     ";
             if(crelation[i]==1)
                 cout<<"In a relationship"<<endl;
             if(crelation[i]==2)
@@ -1371,11 +1400,12 @@ void stats()
                 cout<<endl;
         }
 }
+
 void choicemenu()
 {
     k=0;
     holiday=0;
-    choice[100]= {100};
+    choice[100] = 100;
     while(choice[k]!=0&&criminal<=0)
     {
         stats();
@@ -1401,17 +1431,17 @@ void choicemenu()
         {
             j=rand()%3000+1;
             if(j<=50)
-                cout<<endl<<"You tried to steal "<<j<<" $ from a homeless!"<<endl;
+                cout<<endl<<"You tried to steal $"<<j<<" from a homeless!"<<endl;
             if(j>50&&j<=100)
-                cout<<endl<<"You tried to steal "<<j<<" $ from a kid!"<<endl;
+                cout<<endl<<"You tried to steal $"<<j<<" from a kid!"<<endl;
             if(j>100&&j<=500)
-                cout<<endl<<"You tried to steal "<<j<<" $ from old people!"<<endl;
+                cout<<endl<<"You tried to steal $"<<j<<" from old people!"<<endl;
             if(j>500&&j<=1000)
-                cout<<endl<<"You tried to steal "<<j<<" $ from a woman!"<<endl;
+                cout<<endl<<"You tried to steal $"<<j<<" from a woman!"<<endl;
             if(j>1000&&j<=2000)
-                cout<<endl<<"You tried to steal "<<j<<" $ from a man!"<<endl;
+                cout<<endl<<"You tried to steal $"<<j<<" from a man!"<<endl;
             if(j>2000&&j<=3000)
-                cout<<endl<<"You tried to steal "<<j<<" $ from a businessman!"<<endl;
+                cout<<endl<<"You tried to steal $"<<j<<" from a businessman!"<<endl;
             i=rand()%2;
             if(i==0)
             {
@@ -1513,11 +1543,11 @@ void choicemenu()
         {
             if(house!=-1)
             {
-                cout<<"Do you want to sell your house?"<<endl<<"You will get "<<pricerec/2<<"$"<<endl;
+                cout<<"Do you want to sell your house?"<<endl<<"You will get $"<<pricerec/2<<endl;
                 cin>>j;
                 if(j==1)
                 {
-                    cout<<"You sold your house and you got "<<pricerec/2<<"$"<<endl;
+                    cout<<"You sold your house and you got $"<<pricerec/2<<endl;
                     dmoney+=pricerec/2;
                     house=-1;
                     pricerec=0;
@@ -1594,17 +1624,17 @@ void choicemenu()
                     for(i=0; i<=9; i++)
                     {
                         if(i==0)
-                            cout<<i+1<<". "<<company[i]<<" "<<v[i]<<"$"<<endl<<"Minimum requirement: high school"<<endl;
+                            cout<<i+1<<". "<<company[i]<<" $"<<v[i]<<endl<<"Minimum requirement: high school"<<endl;
                         if(i>=1&&i<=2)
-                            cout<<i+1<<". "<<company[i]<<" "<<v[i]<<"$"<<endl<<"Minimum requirement: college"<<endl;
+                            cout<<i+1<<". "<<company[i]<<" $"<<v[i]<<endl<<"Minimum requirement: college"<<endl;
                         if(i>=3&&i<=4)
-                            cout<<i+1<<". "<<company[i]<<" "<<v[i]<<"$"<<endl<<"Minimum requirement: college diploma"<<endl;
+                            cout<<i+1<<". "<<company[i]<<" $"<<v[i]<<endl<<"Minimum requirement: college diploma"<<endl;
                         if(i>=5&&i<=6)
-                            cout<<i+1<<". "<<company[i]<<" "<<v[i]<<"$"<<endl<<"Minimum requirement: college diploma at least 8"<<endl;
+                            cout<<i+1<<". "<<company[i]<<" $"<<v[i]<<endl<<"Minimum requirement: college diploma at least 8/10"<<endl;
                         if(i>=7&&i<=8)
-                            cout<<i+1<<". "<<company[i]<<" "<<v[i]<<"$"<<endl<<"Minimum requirement: work experience at least 20 years, no criminal record"<<endl;
+                            cout<<i+1<<". "<<company[i]<<" $"<<v[i]<<endl<<"Minimum requirement: work experience at least 20 years, no criminal record"<<endl;
                         if(i==9)
-                            cout<<i+1<<". "<<company[i]<<" "<<v[i]<<"$"<<endl<<"Minimum requirement: work experience at least 35 years, no criminal record"<<endl;
+                            cout<<i+1<<". "<<company[i]<<" $"<<v[i]<<endl<<"Minimum requirement: work experience at least 35 years, no criminal record"<<endl;
                     }
                     cin>>j;
                     j--;
@@ -1708,7 +1738,7 @@ void choicemenu()
                                 cout<<"You didn't get the job interview"<<endl;
                         }
                         else
-                            cout<<"You need to get a college diploma with a degree of at least 8 to get this job"<<endl;
+                            cout<<"You need to get a college diploma with a degree of at least 8/10 to get this job"<<endl;
                     }
                     if(j==6)
                     {
@@ -1726,7 +1756,7 @@ void choicemenu()
                                 cout<<"You didn't get the job interview"<<endl;
                         }
                         else
-                            cout<<"You need to get a college diploma with a degree of at least 8 to get this job"<<endl;
+                            cout<<"You need to get a college diploma with a degree of at least 8/10 to get this job"<<endl;
                     }
                     if(j==7)
                     {
@@ -1792,7 +1822,7 @@ void choicemenu()
             }
             if(job==1)
             {
-                cout<<"1. Ask for a salary rise"<<endl<<"2. Quit job"<<endl<<"0. Return to menu"<<endl;
+                cout<<"1. Ask for a salary raise"<<endl<<"2. Quit job"<<endl<<"0. Return to menu"<<endl;
                 cin>>j;
                 if(j==1)
                 {
@@ -1800,16 +1830,16 @@ void choicemenu()
                     if(l==0)
                     {
                         m=rand()%15+1;
-                        cout<<"You got a salary rise of "<<m<<"%"<<endl;
+                        cout<<"You got a salary raise of "<<m<<"%"<<endl;
                         salary+=(salary*m)/100;
                     }
                     else
                     {
-                        cout<<"You didn't get a salary rise"<<endl;
+                        cout<<"You didn't get a salary raise"<<endl;
                         m=rand()%10;
                         if(m==0)
                         {
-                            cout<<"Your boss got mad at you because you asked for a salary rise and fired you"<<endl;
+                            cout<<"Your boss got mad at you because you asked for a salary raise and fired you"<<endl;
                             job=0;
                             salary=0;
                         }
@@ -1817,7 +1847,7 @@ void choicemenu()
                 }
                 if(j==2)
                 {
-                    cout<<"Are you sure you want to retire?(0/1)"<<endl;
+                    cout<<"Are you sure you want to retire? (0-No/1-Yes) "<<endl;
                     cin>>r;
                     if(r==1)
                     {
@@ -1973,7 +2003,7 @@ void MAINPROGRAMME()
                 cout<<"You finished high-school!"<<endl;
                 if(intel>=35)
                 {
-                    cout<<"Do you want to go to college?(0/1)";
+                    cout<<"Do you want to go to college? (0-No/1-Yes) ";
                     cin>>college;
                 }
                 else
@@ -1988,7 +2018,7 @@ void MAINPROGRAMME()
             if(age==19)
             {
                 dmoney+=rand()%4001+3000;
-                cout<<"Your parents gave you "<<dmoney<<"$ for finishing high school"<<endl;
+                cout<<"Your parents gave you $"<<dmoney<<" for finishing high school"<<endl;
                 if(college==1)
                     collegepay=rand()%501+800;
             }
@@ -2057,6 +2087,7 @@ void MAINPROGRAMME()
                     study--;
                     cout<<"You started studying "<<studyc[study]<<endl;
                 }
+                if(clas<=5)
                 cout<<"Year "<<clas<<" of college"<<endl;
                 clas++;
                 dintel+=rand()%6+5;
@@ -2136,7 +2167,7 @@ void MAINPROGRAMME()
             ill+=3;
             if(job==1)
             {
-                cout<<"Would you like to retire?(0/1)"<<endl;
+                cout<<"Would you like to retire? (0-No/1-Yes) "<<endl;
                 cin>>ok;
                 if(ok==1)
                 {
@@ -2160,11 +2191,11 @@ void MAINPROGRAMME()
             yforsong--;
             if(yforsong>0)
             {
-                cout<<"You have "<<yforsong<<" years left until you finish the song "<<songname<<endl;
+                cout<<"You have "<<yforsong<<" years left until you finish the song '"<<songname<<"'"<<endl;
             }
             else
             {
-                cout<<"You finished developing the song "<<songname<<endl<<"Enter the career menu to receive your money"<<endl;
+                cout<<"You finished developing the song '"<<songname<<"'"<<endl<<"Enter the career menu to receive your money"<<endl;
                 yforsong=0;
             }
         }
@@ -2173,11 +2204,11 @@ void MAINPROGRAMME()
             yforpaint--;
             if(yforpaint>0)
             {
-                cout<<"You have "<<yforpaint<<" years left until you finish the painting "<<paintname<<endl;
+                cout<<"You have "<<yforpaint<<" years left until you finish the painting '"<<paintname<<"'"<<endl;
             }
             else
             {
-                cout<<"You finished developing the song "<<paintname<<endl<<"Enter the career menu to receive your money"<<endl;
+                cout<<"You finished the painting of '"<<paintname<<"'"<<endl<<"Enter the career menu to receive your money"<<endl;
                 yforpaint=0;
             }
         }
@@ -2214,7 +2245,7 @@ void MAINPROGRAMME()
 int main()
 {
     srand((unsigned int)time(NULL));
-    cout<<"                      ***Welcome to VirtLife***"<<endl<<"(by Stefan Popescu-stefanp99)"<<endl<<"Contact:stefanpopescu99@gmail.com"<<endl<<endl<<endl<<"Instructions:"<<endl<<"0=Reject"<<endl<<"1=Approve"<<endl<<endl<<endl<<"Have fun!"<<endl;
+    cout<<"***Welcome to VirtLife***"<<endl<<endl<<endl<<"(by Stefan Popescu-stefanp99)"<<endl<<"Contact:stefanpopescu99@gmail.com"<<endl<<endl<<endl<<"Have fun!"<<endl;
     system("Pause");
     system("CLS");
     randomizer();
@@ -2228,7 +2259,7 @@ int main()
         cout<<"Gender: Female"<<endl;
     country=rand()%50;
     cout<<"Nationality: "<<countryc[country]<<endl<<endl;
-    cout<<"Enter your name(0 for random names): ";
+    cout<<"Enter your name (0 for random names): ";
     cin>>name[0];
     if(name[0]=="0"||name[0]=="rand")
     {
@@ -2423,19 +2454,19 @@ int main()
     if(n>0)
     {
         ok=0;
-        cout<<"Would you like to continue as one of you children?(0/1)"<<endl;
+        cout<<"Would you like to continue as one of your children? (0-No/1-Yes) "<<endl;
         cin>>ok;
         if(ok==1)
         {
             for(i=1; i<=n; i++)
                 if(a[i].childgender==0)
-                    cout<<i<<". "<<a[i].childname[0]<<"("<<a[i].childage<<" years old, Male)"<<endl;
+                    cout<<i<<". "<<a[i].childname<<" ("<<a[i].childage<<" years old, Male)"<<endl;
                 else
-                    cout<<i<<". "<<a[i].childname[0]<<"("<<a[i].childage<<" years old, Female)"<<endl;
+                    cout<<i<<". "<<a[i].childname<<" ("<<a[i].childage<<" years old, Female)"<<endl;
             cin>>j;
             age=a[j].childage;
             agedead=a[j].childdeathage;
-            name[0]=a[j].childname[0];
+            name[0]=a[j].childname;
             if(cage<cagedead)
             {
                 if(gen==0)
@@ -2578,8 +2609,8 @@ int main()
                     m=rand()%2;
                     a[i].childgender=m;
                     if(a[i].childgender==0)
-                        cout<<"Name child#"<<i<<"(Male, "<<a[i].childage<<" years old)"<<endl;
-                    cin>>a[i].childname[0];
+                        cout<<"Name child #"<<i<<" (Male, "<<a[i].childage<<" years old)"<<endl;
+                    cin>>a[i].childname;
                     if(a[i].childage>=15)
                     {
                         m=rand()%3;
@@ -2608,4 +2639,3 @@ int main()
     system("Pause");
     return 0;
 }
-
