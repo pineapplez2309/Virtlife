@@ -35,9 +35,9 @@ string drugs[100]= {"Marijuana","LSD","Cocaine","Salvia","Ecstasy","Heroin","Ket
 string alcohol[100]= {"white wine","red wine","tequila","whiskey","beer","cider","vermouth"};
 string disease[100]= {"flu","intoxication","fever","cold","hepatitis","pneumonia","liver disease"};//7
 string studyc[100]= {"Arts","Architecture","Biosciences","Computer science","Computing","Drama","Engineering","History","Journalism","Law","Literature","Maths","Medicine","Music","Sports science","Teaching"};
-string company[100]= {"Media Arts","Nantendo Company","Mirste","Ek on omy","Pigna Industries","Eurocom Expansion","Quartz Games","Lindsay & King","InfoPro","Clarke Computing"}; //10
+string company[100]= {"Media Arts","Nantendo Company","Mirste","Metatools","Pigna Industries","Eurocom Expansion","Quartz Games","Lindsay & King","InfoPro","Clarke Computing"}; //10
 string carc1[100]= {"Audi","BMW","Chevrolet","Citroen","Dacia","Fiat","Ford","Honda","Hyundai","Kia","Mazda","Mercedes","Nissan","Opel","Peugeot","Renault","Skoda","Suzuki","Toyota","Volkswagen"}; //20
-string carc2[100]= {"X5","Corvette","Fabia","Focus","C5","M8","H12","Fiesta","Duster","E3","X8","I2","C4","Class 8","Class 10","CX6","DW4","500","302","1300"};
+string carc2[100]= {"X5","Corvette","Fabia","Focus","C5","Mustang","H12","Fiesta","Duster","E3","X8","I2","C4","Class 8","Class 10","CX6","DW4","500","302","1300"};
 string housec[100]= {"Apartment - 1 bedroom 1 bathroom","Apartment - 2 bedrooms 1 bathroom","Apartment - 2 bedrooms 2 bathrooms","House - 2 bedrooms 2 bathrooms","House - 2 bedrooms 2 bathrooms garden","House - 3 bedrooms 2 bathrooms","House - 4 bedrooms 2 bathrooms with garden","House - 4 bedrooms 3 bathrooms with garden","Luxury Villa","Luxury Villa by sea"};
 string stdiseasec[100]= {"HIV/AIDS","Gonorrhea","Genital warts","Genital herpes","Syphilis","Chlamydia","Crabs","Hepatitis B"}; //8
 string harddisease[100]= {"Lung cancer","Liver cancer","Alzheimer","Coronary heart disease","Leukemia","Pancreas cancer","Parkinson's disease","Skin cancer"}; //8
@@ -50,7 +50,7 @@ string cname[4];
 char stagename[20],songname[20],paintname[20];
 int i,j,k,l,m,n,o,p,q,r,country,gen,age,health,happy,intel,appear,social,money,mage,fage,fdead,mdead,agedead,event,ill,illok,clas,ok,injury,relation,sex,college,job,study,choice[100]= {100},diploma,collegepay,criminal,salary,buychoice,v[100],house;
 int car,pricerec,dhealth,dhappy,dintel,dappear,dsocial,dmoney,baby[100],work,stdok,stdisease,agedeadi,harddiseaseok,babyok,drugsnumb,limit,drugaddict,alcoholnumb,alcoholaddict,smokeaddict,ywdrugs,ywalcohol,ywsmoke,limit2,cage,cagedead;
-int crelation[100],cn[100],y[100],career,music,yforsong,song,reputation,musicalcopies,musicaltour,yforpaint,paint,criminalchoice,crimes,sportschoice,sportsok,carprice[100],houseprice[100],holiday;
+int crelation[100],cn[100],y[100],career,music,yforsong,song,reputation,musicalcopies,musicaltour,yforpaint,paint,criminalchoice,crimes,sportschoice,sportsok,carprice[100],houseprice[100],holiday,musichist,painthist,criminalhist,sportshist,jobhist[10];
 
 struct child
 {
@@ -813,12 +813,12 @@ void death()
     {
         if(harddiseaseok==1)
             cout<<harddisease[o]<<endl;
+        else if(stdok==1)
+            cout<<stdiseasec[stdisease]<<endl;
         else if(drugaddict==1)
             cout<<"Drug abuse"<<endl;
         else if(alcoholaddict==1)
             cout<<"Alcohol abuse"<<endl;
-        else if(stdok==1)
-            cout<<stdiseasec[stdisease]<<endl;
         else
             cout<<"Natural causes"<<endl;
     }
@@ -928,7 +928,7 @@ void musiciancareer()
     }
     if(j==3)
     {
-        cout<<"Are you sure you want to retire? (0-No/1-Yes) ";
+        cout<<"Are you sure you want to retire? You won't be able to take up the same career again! (0-No/1-Yes) ";
         cin>>r;
         if(r==1)
         {
@@ -936,6 +936,8 @@ void musiciancareer()
             reputation=0;
             cout<<"You sold a total of "<<musicalcopies<<" copies of your songs"<<endl;
             musicalcopies=0;
+            musichist=1;
+            song=0;
         }
     }
 }
@@ -998,12 +1000,14 @@ void paintercareer()
     }
     if(j==2)
     {
-        cout<<"Are you sure you want to retire? (0-No/1-Yes) ";
+        cout<<"Are you sure you want to retire? You won't be able to take up the same career again! (0-No/1-Yes) ";
         cin>>r;
         if(r==1)
         {
             career=0;
             reputation=0;
+            painthist=1;
+            paint=0;
         }
     }
 }
@@ -1046,7 +1050,7 @@ void criminalcareer()
         }
         cout<<"What do you want to do?"<<endl;
         cout<<"1. Kill a person"<<endl;
-        cout<<"2. Change career"<<endl;
+        cout<<"2. Retire"<<endl;
         cout<<"0. Return to menu"<<endl;
         cin>>j;
         if(j==1)
@@ -1075,7 +1079,7 @@ void criminalcareer()
         }
         if(j==2)
         {
-            cout<<"Are you sure you want to retire? (0-No/1-Yes) ";
+            cout<<"Are you sure you want to retire? You won't be able to take up the same career again! (0-No/1-Yes) ";
             cin>>r;
             if(r==1)
             {
@@ -1084,6 +1088,7 @@ void criminalcareer()
                 criminalchoice=0;
                 career=0;
                 reputation=-1;
+                criminalhist=1;
             }
         }
     }
@@ -1126,7 +1131,7 @@ void criminalcareer()
         }
         if(j==2)
         {
-            cout<<"Are you sure you want to retire? (0-No/1-Yes) ";
+            cout<<"Are you sure you want to retire? You won't be able to take up the same career again! (0-No/1-Yes) ";
             cin>>r;
             if(r==1)
             {
@@ -1140,6 +1145,7 @@ void criminalcareer()
                 }
                 career=0;
                 criminalchoice=0;
+                criminalhist=1;
             }
         }
     }
@@ -1236,7 +1242,7 @@ void sportscareer()
         }
         if(j==2)
         {
-            cout<<"Are you sure you want to retire? (0-No/1-Yes) ";
+            cout<<"Are you sure you want to retire? You won't be able to take up the same career again! (0-No/1-Yes) ";
             cin>>r;
             if(r==1)
             {
@@ -1247,6 +1253,7 @@ void sportscareer()
                 reputation=0;
                 sportschoice=-1;
                 career=0;
+                sportshist=1;
             }
         }
         if(age>=35&&sportschoice>=0)
@@ -1267,7 +1274,7 @@ void sportscareer()
 }
 void statscalc()
 {
-    dmoney-=pricerec/10;
+    dmoney-=pricerec/75;
     dmoney+=salary;
     age++;
     fage++;
@@ -1423,7 +1430,7 @@ void choicemenu()
         k++;
         cin>>choice[k];
         for(l=1; l<=k-1; l++)
-            if(choice[l]==choice[k]&&choice[k]!=3&&choice[k]!=4&&choice[k]!=5&&choice[k]!=6&&choice[k]!=7&&choice[k]!=8)
+            if(choice[l]==choice[k]&&choice[k]!=3&&choice[k]!=4&&choice[k]!=5&&choice[k]!=6&&choice[k]!=8)
                 ok=0;
         if(choice[k]==1&&ok==1)
             partymenu();
@@ -1636,9 +1643,12 @@ void choicemenu()
                         if(i==9)
                             cout<<i+1<<". "<<company[i]<<" $"<<v[i]<<endl<<"Minimum requirement: work experience at least 35 years, no criminal record"<<endl;
                     }
+                    cout<<"0. Return to menu"<<endl;
                     cin>>j;
                     j--;
-                    if(j==0)
+                    if(jobhist[j])
+                        cout<<"You can't take this job again!"<<endl;
+                    if(j==0&&jobhist[j]==0)
                     {
                         l=rand()%21+30;
                         if((dintel+intel+dsocial+social)/2>=l)
@@ -1651,7 +1661,7 @@ void choicemenu()
                         else
                             cout<<"You didn't get the job interview"<<endl;
                     }
-                    if(j==1)
+                    if(j==1&&jobhist[j]==0)
                     {
                         l=rand()%21+40;
                         if(college>=1)
@@ -1669,7 +1679,7 @@ void choicemenu()
                         else
                             cout<<"You need to go to college to get this job"<<endl;
                     }
-                    if(j==2)
+                    if(j==2&&jobhist[j]==0)
                     {
                         l=rand()%21+45;
                         if(college>=1)
@@ -1687,7 +1697,7 @@ void choicemenu()
                         else
                             cout<<"You need to go to college to get this job"<<endl;
                     }
-                    if(j==3)
+                    if(j==3&&jobhist[j]==0)
                     {
                         k=rand()%21+45;
                         if(diploma!=0)
@@ -1705,7 +1715,7 @@ void choicemenu()
                         else
                             cout<<"You need to get a college diploma to get this job"<<endl;
                     }
-                    if(j==4)
+                    if(j==4&&jobhist[j]==0)
                     {
                         l=rand()%21+50;
                         if(diploma!=0)
@@ -1723,7 +1733,7 @@ void choicemenu()
                         else
                             cout<<"You need to get a college diploma to get this job"<<endl;
                     }
-                    if(j==5)
+                    if(j==5&&jobhist[j]==0)
                     {
                         l=rand()%21+55;
                         if(diploma>=8)
@@ -1740,7 +1750,7 @@ void choicemenu()
                         else
                             cout<<"You need to get a college diploma with a degree of at least 8/10 to get this job"<<endl;
                     }
-                    if(j==6)
+                    if(j==6&&jobhist[j]==0)
                     {
                         l=rand()%21+60;
                         if(diploma>=8)
@@ -1758,7 +1768,7 @@ void choicemenu()
                         else
                             cout<<"You need to get a college diploma with a degree of at least 8/10 to get this job"<<endl;
                     }
-                    if(j==7)
+                    if(j==7&&jobhist[j]==0)
                     {
                         l=rand()%21+50;
                         if(work>=20)
@@ -1776,7 +1786,7 @@ void choicemenu()
                         else
                             cout<<"You need to have at least 20 years of work experience to get this job"<<endl;
                     }
-                    if(j==8)
+                    if(j==8&&jobhist[j]==0)
                     {
                         l=rand()%21+55;
                         if(work>=20)
@@ -1794,7 +1804,7 @@ void choicemenu()
                         else
                             cout<<"You need to have at least 20 years of work experience to get this job"<<endl;
                     }
-                    if(j==9)
+                    if(j==9&&jobhist[j]==0)
                     {
                         l=rand()%21+60;
                         if(work>=35)
@@ -1839,21 +1849,23 @@ void choicemenu()
                         m=rand()%10;
                         if(m==0)
                         {
-                            cout<<"Your boss got mad at you because you asked for a salary raise and fired you"<<endl;
+                            cout<<"Your boss got mad at you because you asked for a salary raise and fired you!"<<endl<<"Now you won't be able to take this job again!";
                             job=0;
                             salary=0;
+                            jobhist[p]=1;
                         }
                     }
                 }
                 if(j==2)
                 {
-                    cout<<"Are you sure you want to retire? (0-No/1-Yes) "<<endl;
+                    cout<<"Are you sure you want to retire? You won't be able to take this job again! (0-No/1-Yes) "<<endl;
                     cin>>r;
                     if(r==1)
                     {
                         cout<<"You quit your job"<<endl;
                         job=0;
                         salary=0;
+                        jobhist[p]=1;
                     }
                 }
             }
@@ -1873,7 +1885,8 @@ void choicemenu()
                 cin>>m;
                 if(m==1)
                 {
-                    career=1;
+                    if(musichist==0)
+                    {career=1;
                     cout<<"Choose your stage name"<<endl;
                     cin.get();
                     gets(stagename);
@@ -1882,17 +1895,32 @@ void choicemenu()
                         cout<<i+1<<". "<<musicgenres[i]<<endl;
                     cin>>music;
                     music--;
+                    }
+                    else
+                        cout<<"You can't have the same career again!"<<endl;
                 }
                 if(m==2)
+                    {if(painthist==0)
                     career=2;
+                    else
+                        cout<<"You can't have the same career again!"<<endl;
+                    }
                 if(m==3)
-                    career=3;
+             {if(criminalhist==0)
+                        career=3;
+                    else
+                        cout<<"You can't have the same career again!"<<endl;
+             }
                 if(m==4)
                 {
-                    if(age>=25)
+                    if(sportshist==0)
+                    {if(age>=25)
                         cout<<"You are too old to professionally start a sport"<<endl;
                     else
                         career=4;
+                    }
+                    else
+                        cout<<"You can't have the same career again!"<<endl;
                 }
             }
             if(career==1)
@@ -2245,7 +2273,7 @@ void MAINPROGRAMME()
 int main()
 {
     srand((unsigned int)time(NULL));
-    cout<<"***Welcome to VirtLife***"<<endl<<endl<<endl<<"(by Stefan Popescu-stefanp99)"<<endl<<"Contact:stefanpopescu99@gmail.com"<<endl<<endl<<endl<<"Have fun!"<<endl;
+    cout<<"***Welcome to VirtLife***"<<endl<<endl<<endl<<"(by Stefan Popescu)"<<endl<<"Contact:stefanpopescu99@gmail.com"<<endl<<endl<<endl<<"Have fun!"<<endl;
     system("Pause");
     system("CLS");
     randomizer();
@@ -2495,6 +2523,12 @@ int main()
             crimes=0;
             relation=crelation[j];
             harddiseaseok=0;
+            painthist=0;
+            musichist=0;
+            criminalhist=0;
+            sportshist=0;
+            for(i=0;i<=9;i++)
+                jobhist[i]=0;
             stdok=0;
             smokeaddict=0;
             alcoholaddict=0;
@@ -2600,6 +2634,7 @@ int main()
             {
                 p=rand()%10;
                 salary=rand()%10000+((p+1)*10000);
+                work=rand()%(age-19);
             }
             if(cn[j]>0)
             {
