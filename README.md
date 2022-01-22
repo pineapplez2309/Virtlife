@@ -15,7 +15,3 @@ Includes:
 -And a lot more other things to do.
 
 The game is completely random and you will live a different life every time you play this game.
-
-By Stefan Popescu (stefanp99)
-
-Contact:stefanpopescu99@gmail.com
