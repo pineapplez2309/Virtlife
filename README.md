@@ -1,5 +1,5 @@
 # Virtlife
-Virtlife is a text-based game in which you can become a random person and simulate a random life.
+(Old project) Virtlife is a text-based game in which you can become a random person and simulate a random life.
 Includes:
 
 -Careers: painter, singer, sports, criminal;
